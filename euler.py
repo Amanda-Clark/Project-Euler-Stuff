@@ -1,5 +1,5 @@
-
-#Problem 1
+#
+# #Problem 1
 answer = 0
 for num in range(1, 1000):
     if num % 5 == 0 or num % 3 == 0:
@@ -7,7 +7,7 @@ for num in range(1, 1000):
 
 print(answer)
 
-#Problem 2
+# #Problem 2
 fibs = []
 def fibonacci(n):
     a = 0
@@ -30,7 +30,7 @@ for num in fibs:
 print(sum(nums))
 
 
-#Problem 3
+# #Problem 3
 
 import math
 
@@ -41,12 +41,47 @@ root = math.sqrt(num)
 for i in range(3, int(root)):
     while num % i == 0:
         print(i)
-        num = num/i
+#         num = num/i
 
 
+#Problem 4
+ans = 0
+for i in range(100, 999):
+    for j in range(100, 999):
+        prod = i * j
+        if str(prod)== str(prod)[::-1]:
+            if prod > ans:
+                ans = prod
+                print(ans)
 
+#Problem 5
 
+from functools import reduce
 
+def gcd(a, b):
+    """Return greatest common divisor using Euclid's Algorithm."""
+    while b:
+        a, b = b, a % b
+    return a
 
+def lcm(a, b):
+    """Return lowest common multiple."""
+    return a * b // gcd(a, b)
+
+def lcmm(*args):
+    """Return lcm of args."""
+    return reduce(lcm, args)
+
+ans = lcmm(*range(1,21))
+print(ans)
+
+#Problem 6
+ans1 = 0
+for i in range(1, 101):
+   ans1 = i*i + ans1
+ans2 = sum(range(1, 101))
+ans2 = ans2* ans2
+ans3 = ans2 - ans1
+print(ans3)
 
 
